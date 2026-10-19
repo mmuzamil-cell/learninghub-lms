@@ -30,7 +30,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Mount routes at root (as specified in Question 1 & 2: /register, /login, /courses, /enroll, /my-courses)
+// Mount primary API routes at root (/register, /login, /courses, /enroll, /my-courses)
 app.use('/', authRoutes);
 app.use('/courses', courseRoutes);
 app.use('/', enrollmentRoutes);

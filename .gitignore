@@ -3,8 +3,10 @@ node_modules/
 backend/node_modules/
 frontend/node_modules/
 
-# Production build (uncomment if you build on server)
-# dist/
+# Production build
+frontend/build/
+build/
+dist/
 
 # Environment files
 .env
@@ -32,9 +34,5 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+.cache/
 
-# Temporary and AI agent artifacts
-.gemini/
-.agents/
-.cursor/
-scratch/

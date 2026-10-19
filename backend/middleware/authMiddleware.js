@@ -29,8 +29,8 @@ const protect = async (req, res, next) => {
   return res.status(401).json({ message: 'Not authorized, no token provided' });
 };
 
-// Optional auth middleware so Question 1 basic course creation works if tested without token,
-// while strictly enforcing role permissions when a token is provided in Question 2
+// Optional auth middleware: allows flexible course creation if unauthenticated,
+// while strictly enforcing role permissions when a token is provided
 const optionalCourseAuth = async (req, res, next) => {
   if (
     req.headers.authorization &&

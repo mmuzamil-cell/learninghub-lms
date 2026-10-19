@@ -28,7 +28,7 @@ const CourseListing = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Quick Add Course Drawer/Form state (fulfills Question 1 & Question 2 interaction)
+  // Quick Add Course Drawer/Form state for adding courses directly from the catalog
   const [showQuickAdd, setShowQuickAdd] = useState(false);
   const [newCourse, setNewCourse] = useState({
     title: '',

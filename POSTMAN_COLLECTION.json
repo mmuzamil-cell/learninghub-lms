@@ -1,7 +1,7 @@
 {
   "info": {
     "name": "LearnHub MERN LMS API Collection",
-    "description": "Ready-to-use API requests for testing LearnHub endpoints (Question 1 & Question 2)",
+    "description": "Comprehensive API collection for testing LearnHub LMS authentication, courses, and enrollment endpoints",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [

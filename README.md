@@ -1,5 +1,12 @@
 # LearnHub - MERN Stack Learning Management System
 
+- **Live Deployment:** [https://darkorchid-chough-249508.hostingersite.com/](https://darkorchid-chough-249508.hostingersite.com/)
+- **GitHub Repository:** [https://github.com/mmuzamil-cell/learninghub-lms](https://github.com/mmuzamil-cell/learninghub-lms)
+- **Developer:** Muhammad Muzamil Ali
+- **Subject:** MERN Stack Web Development (Batch 3 Final Project)
+
+---
+
 LearnHub is a full-stack Learning Management System built with MongoDB, Express.js, React.js, and Node.js. It allows students to browse and enroll in courses, instructors to create and manage course curricula and lessons, and administrators to oversee users, courses, and platform analytics.
 
 ## Features

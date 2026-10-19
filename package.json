@@ -1,0 +1,14 @@
+{
+  "name": "learnhub-mern-lms",
+  "version": "1.0.0",
+  "description": "LearnHub MERN Stack Learning Management System",
+  "scripts": {
+    "install-all": "cd backend && npm install && cd ../frontend && npm install",
+    "seed": "cd backend && npm run seed",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm start",
+    "build": "cd frontend && npm run build"
+  },
+  "author": "Muhammad Muzamil Ali",
+  "license": "MIT"
+}

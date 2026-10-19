@@ -1,0 +1,166 @@
+{
+  "info": {
+    "name": "LearnHub MERN LMS API Collection",
+    "description": "Ready-to-use API requests for testing LearnHub endpoints (Question 1 & Question 2)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Register User (POST /register)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "register"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Hamza Raza\",\n  \"email\": \"hamza@learnhub.com\",\n  \"password\": \"password123\",\n  \"role\": \"student\"\n}"
+        }
+      }
+    },
+    {
+      "name": "2. Login User (POST /login)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "login"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"usman@learnhub.com\",\n  \"password\": \"password123\"\n}"
+        }
+      }
+    },
+    {
+      "name": "3. Get All Courses (GET /courses)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5000/courses",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "courses"
+          ]
+        }
+      }
+    },
+    {
+      "name": "4. Create Course (POST /courses)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_JWT_TOKEN_HERE"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/courses",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "courses"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"React Native Mobile App Development\",\n  \"description\": \"Build cross-platform iOS and Android apps with React Native and Expo.\",\n  \"category\": \"Web Development\",\n  \"price\": 4200,\n  \"level\": \"Intermediate\",\n  \"duration\": \"6 Weeks\"\n}"
+        }
+      }
+    },
+    {
+      "name": "5. Enroll in Course (POST /enroll)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_STUDENT_JWT_TOKEN"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/enroll",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "enroll"
+          ]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"courseId\": \"PASTE_COURSE_ID_HERE\"\n}"
+        }
+      }
+    },
+    {
+      "name": "6. Get My Enrolled Courses (GET /my-courses)",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer YOUR_STUDENT_JWT_TOKEN"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:5000/my-courses",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5000",
+          "path": [
+            "my-courses"
+          ]
+        }
+      }
+    }
+  ]
+}

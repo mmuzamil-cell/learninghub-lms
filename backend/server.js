@@ -1,5 +1,4 @@
 const path = require('path');
-const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -21,9 +20,12 @@ app.use(express.urlencoded({ extended: true }));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
+  const mongoose = require('mongoose');
+  const dbStatusMap = { 0: 'disconnected', 1: 'connected', 2: 'connecting', 3: 'disconnecting' };
   res.status(200).json({
     status: 'ok',
     service: 'LearnHub MERN LMS Backend',
+    database: dbStatusMap[mongoose.connection.readyState] || 'unknown',
     timestamp: new Date().toISOString(),
   });
 });
@@ -42,21 +44,12 @@ app.use('/api/admin', adminRoutes);
 
 // Serve static frontend build in production
 if (process.env.NODE_ENV === 'production') {
-  let frontendBuildPath = path.join(__dirname, '../frontend/build');
-  if (!fs.existsSync(frontendBuildPath)) {
-    frontendBuildPath = path.join(__dirname, 'build');
-  }
-  if (!fs.existsSync(frontendBuildPath)) {
-    frontendBuildPath = path.join(__dirname, 'public');
-  }
+  const frontendBuildPath = path.join(__dirname, '../frontend/build');
+  app.use(express.static(frontendBuildPath));
 
-  if (fs.existsSync(frontendBuildPath)) {
-    app.use(express.static(frontendBuildPath));
-
-    app.get('*', (req, res) => {
-      res.sendFile(path.resolve(frontendBuildPath, 'index.html'));
-    });
-  }
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(frontendBuildPath, 'index.html'));
+  });
 } else {
   app.get('/', (req, res) => {
     res.json({

@@ -75,7 +75,7 @@ const connectDB = async () => {
       await ensureInitialData();
     } catch (memErr) {
       console.error(`Database connection error: ${memErr.message}`);
-      process.exit(1);
+      console.warn('Server continuing to run. Please verify MONGO_URI credentials.');
     }
   }
 };

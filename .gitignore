@@ -4,9 +4,8 @@ backend/node_modules/
 frontend/node_modules/
 
 # Production build
-frontend/build/
-build/
-dist/
+/build/
+/dist/
 
 # Environment files
 .env

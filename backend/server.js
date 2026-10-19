@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -41,12 +42,21 @@ app.use('/api/admin', adminRoutes);
 
 // Serve static frontend build in production
 if (process.env.NODE_ENV === 'production') {
-  const frontendBuildPath = path.join(__dirname, '../frontend/build');
-  app.use(express.static(frontendBuildPath));
+  let frontendBuildPath = path.join(__dirname, '../frontend/build');
+  if (!fs.existsSync(frontendBuildPath)) {
+    frontendBuildPath = path.join(__dirname, 'build');
+  }
+  if (!fs.existsSync(frontendBuildPath)) {
+    frontendBuildPath = path.join(__dirname, 'public');
+  }
 
-  app.get('*', (req, res) => {
-    res.sendFile(path.resolve(frontendBuildPath, 'index.html'));
-  });
+  if (fs.existsSync(frontendBuildPath)) {
+    app.use(express.static(frontendBuildPath));
+
+    app.get('*', (req, res) => {
+      res.sendFile(path.resolve(frontendBuildPath, 'index.html'));
+    });
+  }
 } else {
   app.get('/', (req, res) => {
     res.json({
